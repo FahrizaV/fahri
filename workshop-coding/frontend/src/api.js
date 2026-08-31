@@ -34,3 +34,13 @@ export const weatherApi = {
     return response.json()
   },
 }
+
+export const countriesApi = {
+  getByName: async (name) => {
+    try {
+      return await request(`/countries/${encodeURIComponent(name)}/`)
+    } catch (error) {
+      throw error
+    }
+  },
+}

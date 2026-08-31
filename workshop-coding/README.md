@@ -44,7 +44,7 @@ npm.cmd install
 npm.cmd run dev
 ```
 
-Buat `frontend/.env` dari `frontend/.env.example`, lalu isi:
+Buat `frontend/.env` dari `frontend/.env.example`, lalu isi key cuaca:
 
 ```env
 VITE_OPENWEATHER_API_KEY=your_openweathermap_api_key
@@ -54,6 +54,16 @@ Halaman `Cuaca hari ini` mengambil data dari OpenWeatherMap melalui endpoint
 `https://api.openweathermap.org/data/2.5/weather`, dengan parameter kota, API
 key, satuan Celsius, dan bahasa Indonesia. Setelah mengubah `.env`, restart
 Vite agar environment variable terbaca.
+
+Menu `Data negara` menggunakan proxy Django ke Countries API v5. Buat file
+`backend/.env` dari `backend/.env.example`, lalu isi:
+
+```env
+REST_COUNTRIES_API_KEY=your_rest_countries_api_key
+```
+
+Karena request dilakukan oleh backend, API key tidak perlu menambahkan origin
+frontend ke allowed origins. Setelah mengubah `.env`, restart backend dan Vite.
 
 API resource tersedia di `/api/courses/`:
 
